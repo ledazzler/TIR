@@ -1,3 +1,9 @@
+#This program takes a list of urls and passes them to virustotal api for analysis
+#Returns a CSV with url and number of sites that detected it as malicious
+#Requires input of file (urls should be on separate line) and API
+#Sleeps for 16 seconds after each entry (no more that 4 API calls per minute permitted)
+
+
 import requests
 import time
 import csv
