@@ -1,3 +1,6 @@
+#This program takes a list of urls and passes them to urlvoid engine for analysis
+#only 1000 queries per day are permitted.    enhancement require to ensure we don't go over that limit
+#requires input of filename (urls should each be on a separate line) and API key
 import logger
 import urllib.request
 import csv
