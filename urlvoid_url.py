@@ -22,7 +22,6 @@ def checkurl(url):
   count = [ b.text for b in root.iterfind(".//count")]
   host = [ b.text for b in root.iterfind(".//host")]
   error = [b.text for b in root.iterfind(".//error")]
-  engines = ','.join(engines)
   count = ','.join(count)
   host = url.strip('\n')
   if len(engines) == 0:
@@ -48,6 +47,8 @@ def urlvoid():
         print('submitting {}'.format(x))
         checkurl(x)
       except Exception as e:
-        logging.error('Failed to submit {}: '+ str(e)).format(x)
+        logstr = 'Failed to submit {}: '.format(x) + str(e)
+        logging.error(logstr)
+        results.append(error)
 
 urlvoid()

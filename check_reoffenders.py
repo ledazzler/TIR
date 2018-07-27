@@ -33,18 +33,8 @@ w2d = [x for x in w2list if x in w1list or x in w3list or x in w4list]
 w3d = [x for x in w3list if x in w1list or x in w2list or x in w4list]
 w4d = [x for x in w4list if x in w1list or x in w2list or x in w3list]
 
-
-
-#print(w1d)
-#print('***')
-#print(w2d)
-#print('***')
-#print(w3d)
-#print('***')
-#print(w4d)
-#print('***')
-
 nodupes = [(set().union(w1d,w2d,w3d,w4d))]
+
 for x in nodupes:
-  for a in x:
-    print(a)
+	for a in x:
+	print(a)
