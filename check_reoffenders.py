@@ -1,9 +1,3 @@
-#Take a list of 4 files, and compare each list for duplicates
-#Print any usernames or hostnames that occur in two or more weeks
-#imput should have one username or hostname per line, and no special characters etc
-
-
-
 with open('week1','r') as week1:
   w1list = week1.readlines()
   w1list = [x.strip('\n') for x in w1list]
@@ -35,6 +29,60 @@ w4d = [x for x in w4list if x in w1list or x in w2list or x in w3list]
 
 nodupes = [(set().union(w1d,w2d,w3d,w4d))]
 
-for x in nodupes:
-	for a in x:
-	print(a)
+w12list = []
+w13list = []
+w14list = []
+w23list = []
+w24list = []
+w34list = []
+w124list = []
+w134list = []
+w234list = []
+w1234list = []
+
+overlaplists = [w12list,w13list,w14list,w23list,w24list,w34list,w124list,w134list,w234list,w1234list]
+counter = 0
+for a in nodupes[0]:
+  alist = []
+
+  if a in w1list:
+    alist.append('1')
+  if a in w2list:
+    alist.append(',2') 
+  if a in w3list:
+    alist.append(',3')
+  if a in w4list:
+    alist.append(',4')
+  
+  aliststr = ''.join(alist)
+  if aliststr[0] == ',':
+    aliststr = aliststr[1:]
+  if aliststr == '1,2':
+    w12list.append(a)
+  elif aliststr == '1,3':
+    w13list.append(a)
+  elif aliststr == '1,4':
+    w14list.append(a)
+  elif aliststr == '2,3':
+    w23list.append(a)    
+  elif aliststr == '2,4':
+    w24list.append(a)
+  elif aliststr == '3,4':
+    w34list.append(a)
+  elif aliststr == '3,4':
+    w34list.append(a)
+
+  #print('{} detected in weeks {}'.format(a,aliststr))
+
+#print (len(w12list)+ len(w14list) + len(w24list))
+#print(len(nodupes[0]))
+
+print ('w12: \n')
+for x in w12list:
+  print(x)
+print ('\nw14: \n')
+for x in w14list:
+  print(x)
+print ('\nw24: \n')
+for x in w24list:
+  print(x)
